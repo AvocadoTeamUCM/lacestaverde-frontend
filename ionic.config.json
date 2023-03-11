@@ -1,0 +1,7 @@
+{
+  "name": "laCestaVerde-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
