@@ -6,6 +6,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
 import { MainHeaderComponent } from './main-header/main-header.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { FilterListComponent } from './filter-list/filter-list.component';
+import { ProductStatsComponent } from './product-stats/product-stats.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { FilterListComponent } from './filter-list/filter-list.component';
     FilterListComponent,
     MainHeaderComponent,
     ProductCardComponent,
+    ProductStatsComponent
   ],
   imports: [
     IonicModule,
@@ -23,6 +25,7 @@ import { FilterListComponent } from './filter-list/filter-list.component';
     FilterListComponent,
     MainHeaderComponent,
     ProductCardComponent,
+    ProductStatsComponent
   ]
 })
 export class ComponentsModule { }

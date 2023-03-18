@@ -1,17 +1,46 @@
 
-.imgSwipper{
-/*     height: 30%;
-    width: 85%;
-    border-width: 1%;
-    margin-left: 5%;
-    margin-top: 5%; */
-    border-style: solid;
+.swipper{
+    position: relative;
     align-items: center;
+    height: 35%;
+    width: 95%;
+
+    .imgInSwipper{
+        height: 100%;
+    }
+    
+    .buttonFavorite{
+        position: absolute;
+        top: 0%; 
+        left: 90%;
+        color: red;
+    }
+
 }
 
-.buttonFavorite{
-    position: absolute;
-    top: 0%; 
-    left: 80%;
-    color: red;
+
+
+.gridStyle{
+    
+    .rowNameAndBuy{
+        justify-content: space-between;
+        font-size: xx-large;
+        font-weight: 900;
+    }
+    .rowPrice{
+        font-size: x-large;
+        font-weight: 500;      
+    }
+    .rowBusiness{
+        text-decoration: underline;
+        text-decoration-color: var(--ion-color-primary);
+    }
+    .rowDescription{
+        font-size: medium;
+        font-weight: 300;    
+        text-align: justify;
+    }
+    
 }
+    
+

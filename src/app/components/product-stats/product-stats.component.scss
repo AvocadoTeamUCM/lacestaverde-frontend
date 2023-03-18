@@ -1,0 +1,23 @@
+.gridStyle{
+    
+    .rowHead{
+        justify-content: space-between;
+        font-size: large;
+        font-weight: 900;
+        border: 1px;
+        border-bottom-style: solid;
+        border-top-style: solid;
+        background-color: rgb(215, 215, 215);
+    }
+    .rowLv1{
+        font-size: medium;
+        font-weight: 300;    
+        border: 1px;
+        border-bottom-style: solid;
+    }
+    .rowLv2{
+        font-size: medium;
+        font-weight: 300;      
+    }
+    
+}

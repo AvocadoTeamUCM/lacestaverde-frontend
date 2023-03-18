@@ -4,24 +4,57 @@
 
 <ion-content>
   
-  <ion-item>
-    <ion-img class="imgSwipper" src='../../../../../assets/testManzana.jpg'></ion-img>  
+  <ion-card class="swipper">
+    <ion-img class="imgInSwipper" src='../../../../../assets/testManzana.jpg'></ion-img>  
     <ion-icon *ngIf="this.favorite==true" class="buttonFavorite" (click)="buttonClic_favorite()"  name="heart-sharp" size="large" ></ion-icon>
     <ion-icon *ngIf="this.favorite==false" class="buttonFavorite" (click)="buttonClic_favorite()" name="heart-outline" size="large" ></ion-icon>
-  </ion-item>
+  </ion-card>
   
 
-  <ion-title>MANZANA</ion-title>
-  <ion-button (click)="buttonClic_buyProduct()" expand="block" fill="clear" shape="round">
-    Click me
-  </ion-button>
+   <ion-grid fixed class="gridStyle">
+
+    <!-- ROW PRODUCT AND BUY BUTTON -->
+    <ion-row class="rowNameAndBuy">
+      <ion-col size="8">
+        <ion-text class="ion-text-left ion-text-blond ion-text">Manzana</ion-text>
+      </ion-col>
+      
+      <ion-col size="4">
+         <ion-button  (click)="buttonClic_buyProduct()" expand="block" fill="clear" shape="round">
+          <ion-icon slot="icon-only" name="cart-outline"></ion-icon>     
+        </ion-button> 
+      </ion-col>
+    </ion-row>
+
+    <!-- ROW PRICE OF PRODUCT -->
+    <ion-row class="rowPrice">
+      <ion-col size="12">
+        <ion-text class="titleNameProduct ion-text-left">1,20€/Kg</ion-text>
+      </ion-col>
+    </ion-row>
+    
+    <!-- ROW NAME OF BUSINESS -->
+    <ion-row class="rowBusiness">
+      <ion-col size="12">
+        <ion-text class="ion-text-left" color="primary" (click)="buttonClic_goBusiness()">Frutas Rodri</ion-text>
+      </ion-col>
+    </ion-row>
+    
+    <!-- ROW PRODUCT DESCRIPTION -->
+    <ion-row class="rowDescription">
+      <ion-col size="12">
+        <ion-text class="ion-text-left">Maravillosas manzanas llenas de nutrientes y libres de pesticidas, 
+          pensadas para que desfrutes de un sabor fresco y único. Nuestros productos son de una gran calidad y prometemos
+          que todos nuestros clientes quedarán encantados con los mismos.</ion-text>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <app-product-stats></app-product-stats>
 
 
 
-
-
-  <ion-button (click)="buttonClic_goBusiness()" expand="block" shape="round">
-    go Business
-  </ion-button>
+  
 
 </ion-content>
