@@ -3,12 +3,20 @@
 </ion-header>
 
 <ion-content>
-  <ion-text class="ion-text-center" color="primary">
-    <h1>SHOPPING CART</h1>
-  </ion-text>
-
-  <ion-button (click)="buttonClic_goProduct()" expand="block" shape="round">
-    go Product
-  </ion-button>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title><span>Total: </span>24.60 €</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content class="address-card-content">
+      <p><span>Dirección de envío</span></p>
+      <p>Av. Santiago nº 27</p>
+      <p>San Mariano del Corazón - 23076</p>
+      <p>Aurora Pérez Rodriguez</p>
+      <ion-button (click)="buttonClic_goProduct()" expand="block" shape="round">
+        Finalizar Compra
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
