@@ -7,9 +7,37 @@
     <h1>PROFILE</h1>
   </ion-text>
 
-  <ion-button (click)="buttonClic_goBusiness()" expand="block" shape="round">
-    go Business
-  </ion-button>
+  <ion-card>
+    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+    <ion-card-header class="pertil-title">
+      <ion-card-title >Aurora Pérez Rodriguez</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <p><span class="perfil-label">DNI: </span>999999999R</p>
+      <p><span class="perfil-label">Edad: </span>34</p>
+      <p><span class="perfil-label">Genero: </span>Masculino</p>
+      <p><span class="perfil-label">Dirección: </span>Calle Cartagena 125, B</p>
+      <p><span class="perfil-label">Codigo postal: </span>28035</p>
+      <p><span class="perfil-label">Tel: </span>(+34) 605142369</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-text class="ion-text-center" color="primary">
+    <h2>Negocios</h2>
+  </ion-text>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Frutas Rodri</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Ven y compra mas manzanas y peras en la mejor fruteria.
+    </ion-card-content>
+   
+    <ion-button fill="clear" (click)="buttonClic_goBusiness()" expand="block" shape="round">
+      Ir al negocio
+    </ion-button>
+  </ion-card>
 
   <ion-button (click)="buttonClic_goLogin()" color="danger" expand="block" shape="round">
     go Login
