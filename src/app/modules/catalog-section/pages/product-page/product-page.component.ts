@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class ProductPageComponent  implements OnInit {
 
+  public favorite:Boolean=false;
+
   constructor(
     private router:Router
   ) { }
@@ -22,5 +24,20 @@ export class ProductPageComponent  implements OnInit {
     this.router.navigateByUrl("/business");
     return;
   }
+
+
+
+  buttonClic_buyProduct(){
+    return;
+  }
+
+  buttonClic_favorite(){
+    this.favorite = !this.favorite;
+    return;
+  }
+
+
+
+
 
 }

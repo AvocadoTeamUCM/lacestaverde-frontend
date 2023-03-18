@@ -1,6 +1,8 @@
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AccessSectionRoutingModule } from './access-section-routing.module';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -17,7 +19,8 @@ import { CreateAccountSuccessPageComponent } from './pages/create-account-succes
   imports: [
     IonicModule,
     CommonModule,
-    AccessSectionRoutingModule
+    AccessSectionRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class AccessSectionModule { }

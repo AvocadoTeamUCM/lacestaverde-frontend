@@ -18,7 +18,7 @@ export class CreateAccountSuccessPageComponent  implements OnInit {
   /************************************************************************** 
    * DEDICATED METHODS
   ***************************************************************************/
-  buttonClic_goCatalog(){
+  goToApplication(){
     this.router.navigateByUrl("/catalog");
     return;
   }

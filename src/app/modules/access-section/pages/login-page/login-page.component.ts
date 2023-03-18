@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login-page',
@@ -8,9 +10,19 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent  implements OnInit {
 
+  public statusInfo:string;
+  public formLogin: FormGroup = this.fb.group({
+      email: ["test1@gmail.com", [Validators.required, Validators.email]],
+      password: ["101010", [Validators.required, Validators.minLength(6)]],
+      //aceptService: ["true", Validators.required, Validators.requiredTrue]
+  });
+  
   constructor(
-    private router:Router,
-  ) { }
+      private fb:FormBuilder,
+      private router:Router,
+) { 
+  this.statusInfo="";
+  }
 
   ngOnInit() {}
 
@@ -18,7 +30,8 @@ export class LoginPageComponent  implements OnInit {
   /************************************************************************** 
    * DEDICATED METHODS
   ***************************************************************************/
-  buttonClic_goCatalog(){
+  public login(){
+    const{email, password} = this.formLogin.value;
     this.router.navigateByUrl("/catalog");
     return;
   }

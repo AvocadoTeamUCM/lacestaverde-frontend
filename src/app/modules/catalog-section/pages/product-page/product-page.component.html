@@ -3,9 +3,22 @@
 </ion-header>
 
 <ion-content>
-  <ion-text color="primary">
-    <h1>PRODUCT</h1>
-  </ion-text>
+  
+  <ion-item>
+    <ion-img class="imgSwipper" src='../../../../../assets/testManzana.jpg'></ion-img>  
+    <ion-icon *ngIf="this.favorite==true" class="buttonFavorite" (click)="buttonClic_favorite()"  name="heart-sharp" size="large" ></ion-icon>
+    <ion-icon *ngIf="this.favorite==false" class="buttonFavorite" (click)="buttonClic_favorite()" name="heart-outline" size="large" ></ion-icon>
+  </ion-item>
+  
+
+  <ion-title>MANZANA</ion-title>
+  <ion-button (click)="buttonClic_buyProduct()" expand="block" fill="clear" shape="round">
+    Click me
+  </ion-button>
+
+
+
+
 
   <ion-button (click)="buttonClic_goBusiness()" expand="block" shape="round">
     go Business

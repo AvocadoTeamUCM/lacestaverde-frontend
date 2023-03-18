@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,12 +9,19 @@ import { Router } from '@angular/router';
 })
 export class CreateAccountPageComponent  implements OnInit {
 
+  formCreateAccount: FormGroup = this.fb.group({
+    name: ["test1", [Validators.required]],
+    email: ["test1@gmail.com", [Validators.required, Validators.email]],
+    password: ["101010", [Validators.required, Validators.minLength(6)]],
+    aceptTerms: [true, [Validators.required, Validators.requiredTrue]]
+  })
+
   constructor(
-    private router:Router
-  ) { }
+    private fb: FormBuilder,
+    private router: Router,
+  ){}
 
   ngOnInit() {}
-
 
   /************************************************************************** 
    * DEDICATED METHODS
@@ -23,9 +31,11 @@ export class CreateAccountPageComponent  implements OnInit {
     return;
   }
 
-  buttonClic_goCreateAccountSuccess(){
+  registrarse(){
+    const{name, email, password} = this.formCreateAccount.value;
     this.router.navigateByUrl("/access/createAccountSuccess");
     return;
   }
+
 
 }

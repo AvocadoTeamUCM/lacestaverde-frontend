@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { InfiniteScrollCustomEvent } from '@ionic/angular';
 
 @Component({
   selector: 'app-catalog-page',
@@ -8,17 +9,37 @@ import { Router } from '@angular/router';
 })
 export class CatalogPageComponent  implements OnInit {
 
+  public numItens:Array<number> = [];
+
   constructor(
     private router:Router,
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.addNewItens();
+  }
 
 
   /************************************************************************** 
    * DEDICATED METHODS
   ***************************************************************************/
-  buttonClic_goProduct(){
+  addNewItens(){
+    for( let i=0 ; i<5 ; i++){
+      this.numItens.push(1);
+    }
+    return;
+  }
+
+  onIonInfinite(ev:Event) {
+    this.addNewItens();
+    setTimeout(() => {
+      (ev as InfiniteScrollCustomEvent).target.complete();
+    }, 500);
+    return;
+  }
+
+
+  goProduct(){
     this.router.navigateByUrl("/catalog/product");
     return;
   }

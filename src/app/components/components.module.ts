@@ -4,11 +4,15 @@ import { CommonModule } from '@angular/common';
 
 import { ComponentsRoutingModule } from './components-routing.module';
 import { MainHeaderComponent } from './main-header/main-header.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { FilterListComponent } from './filter-list/filter-list.component';
 
 
 @NgModule({
   declarations: [
-    MainHeaderComponent
+    FilterListComponent,
+    MainHeaderComponent,
+    ProductCardComponent,
   ],
   imports: [
     IonicModule,
@@ -16,7 +20,9 @@ import { MainHeaderComponent } from './main-header/main-header.component';
     ComponentsRoutingModule
   ],
   exports:[
-    MainHeaderComponent
+    FilterListComponent,
+    MainHeaderComponent,
+    ProductCardComponent,
   ]
 })
 export class ComponentsModule { }

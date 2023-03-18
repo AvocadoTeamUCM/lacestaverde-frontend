@@ -2,16 +2,24 @@
 </ion-header>
 
 <ion-content>
-  <ion-text class="ion-text-center" color="primary">
-    <h1>LOGIN</h1>
-  </ion-text>
 
-  <ion-button (click)="buttonClic_goCatalog()" expand="block" shape="round">
-    go Catalog
-  </ion-button>
-  
-  <ion-button (click)="buttonClic_goCreateAccount()" expand="block" shape="round">
-    go Create Account
-  </ion-button>
+      
+  <div class="labelStyle_principalTitle">
+    <ion-label>LA CESTA VERDE</ion-label>
+  </div>
+
+  <form autocomplete="off" [formGroup]="formLogin" (ngSubmit)="login()">
+    <ion-input class="inputStile_loginPage" type="email" formControlName="email" placeholder="Email"></ion-input>
+
+    <ion-input class="inputStile_loginPage"  type="password" formControlName="password" placeholder="Password"></ion-input>
+    
+    <ion-button class="buttonStile_loginPage"  type="submit" expand="block" [disabled]="formLogin.invalid">Acceder</ion-button>
+  </form>
+
+
+  <div class="ion-margin">
+      <ion-label>¿No tienes cuenta? </ion-label>
+      <a href="#" routerLink="/access/createAccount">Crear una aquí</a>
+  </div>
 
 </ion-content>

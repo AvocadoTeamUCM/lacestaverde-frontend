@@ -1,13 +1,18 @@
 <ion-header>
   <app-main-header actualPage="catalog"></app-main-header>
+  <app-filter-list></app-filter-list>
 </ion-header>
 
 <ion-content>
-  <ion-text class="ion-text-center" color="primary">
-    <h1>CATALOG</h1>
-  </ion-text>
 
-  <ion-button (click)="buttonClic_goProduct()" expand="block" shape="round">
-    go Product
-  </ion-button>
+  <ion-list>
+    <div *ngFor="let item of numItens; let index">
+      <app-product-card (event_routerToProduct)="goProduct()"></app-product-card>
+    </div>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content loadingText="Please wait..." loadingSpinner="bubbles"></ion-infinite-scroll-content>
+  </ion-infinite-scroll> 
+
 </ion-content>

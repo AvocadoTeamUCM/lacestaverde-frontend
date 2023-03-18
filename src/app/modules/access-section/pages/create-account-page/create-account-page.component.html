@@ -2,19 +2,30 @@
 </ion-header>
 
 <ion-content>
-  <ion-text class="ion-text-center" color="primary">
-    <h1>CREATE ACCOUNT</h1>
-  </ion-text>
+  <div class="labelStyle_secondaryTitle">
+    <ion-label>Nuevo usuario</ion-label>
+  </div>
 
-  <ion-button (click)="buttonClic_goLogin()" expand="block" shape="round">
-    go Login
-  </ion-button>
-  
-  <ion-button (click)="buttonClic_goCreateAccountSuccess()" expand="block" shape="round">
-     go Create Account Success
-  </ion-button>
+  <form class="" autocomplete="off" [formGroup]="formCreateAccount" (ngSubmit)="registrarse()">          
+    <ion-input class="inputStile_loginPage" type="text" formControlName="name" placeholder="Nombre"></ion-input>
 
+    <ion-input class="inputStile_loginPage" type="email" formControlName="email" placeholder="Email"></ion-input>
 
+    <ion-input class="inputStile_loginPage" type="password" formControlName="password" placeholder="Contraseña"></ion-input>   
+
+    <ion-item>
+      <ion-checkbox type="aceptTerms" slot="start"></ion-checkbox>
+      <ion-label>Acepto los Términos y condiciones</ion-label>
+    </ion-item>   
+
+    <ion-button class="buttonStile_loginPage" type="submit" expand="block" [disabled]="formCreateAccount.invalid">Registrar</ion-button>
+    
+
+    <div class="ion-margin">
+        <span class="">¿Ya tienes una cuenta?</span>
+        <a href="#" class="" routerLink="/access/login">Ingresa aqui</a>
+    </div>
+  </form>
 </ion-content>
 
 
