@@ -15,14 +15,12 @@
 
     <!-- ROW PRODUCT AND BUY BUTTON -->
     <ion-row class="rowNameAndBuy">
-      <ion-col size="8">
+      <ion-col size="7">
         <ion-text class="ion-text-left ion-text-blond ion-text">Manzana</ion-text>
       </ion-col>
       
-      <ion-col size="4">
-         <ion-button  (click)="buttonClic_buyProduct()" expand="block" fill="clear" shape="round">
-          <ion-icon slot="icon-only" name="cart-outline"></ion-icon>     
-        </ion-button> 
+      <ion-col size="5">
+        <app-buy-button></app-buy-button>
       </ion-col>
     </ion-row>
 
@@ -39,7 +37,7 @@
         <ion-text class="ion-text-left" color="primary" (click)="buttonClic_goBusiness()">Frutas Rodri</ion-text>
       </ion-col>
     </ion-row>
-    
+
     <!-- ROW PRODUCT DESCRIPTION -->
     <ion-row class="rowDescription">
       <ion-col size="12">

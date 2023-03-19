@@ -1,0 +1,23 @@
+<ion-button *ngIf="this.buyProductCheck == false" class="buttonNoBuy" (click)="this.buttonClic_buyProduct(1)" expand="block" fill="outline" shape="round">
+  <ion-icon slot="icon-only" name="cart-outline"></ion-icon>     
+</ion-button>
+
+
+<ion-button *ngIf="this.buyProductCheck == true" class="buttonBoughtLeft" fill="solid" (click)="this.buttonClic_noBuyProduct()" >
+  <ion-icon class="iconCart" slot="icon-only" name="cart-outline"></ion-icon>
+</ion-button>
+<ion-input *ngIf="this.buyProductCheck == true" class="inputCuantity" type="number" color="primary" placeholder="0"
+  [(ngModel)]="this.cuantity" (keyup.enter)="pressKey_onEnter()">
+</ion-input>
+
+  <!-- 
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header" color="light">Filtro 2</ion-item>
+        <div class="ion-padding" slot="content">Opción 1</div>
+        <div class="ion-padding" slot="content">Opción 2</div>
+        <div class="ion-padding" slot="content">Opción 3</div>
+      </ion-accordion>
+    </ion-accordion-group> -->
+
+

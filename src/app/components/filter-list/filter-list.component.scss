@@ -5,16 +5,19 @@
     --offset-bottom: auto!important;
     --overflow: hidden;
     overflow: auto;
+
     &::-webkit-scrollbar {
       display: none;
     }
+
     .filter {
         display: inline-block;
-        top: 0;
+        top: 0%;
 
         .filterOption{
             position: relative;
             z-index: 100;
         }
     }
+
   }
