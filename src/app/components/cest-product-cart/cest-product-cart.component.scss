@@ -1,0 +1,42 @@
+.cardCestProduct{
+    position: relative;
+    border-style: solid;
+    border-color: var(--ion-color-primary);
+    border-width: 1px;
+    .rowTrashAndName{
+        .colIconTrash{
+            color: var(--ion-color-primary);
+            .iconTrash{
+                position: absolute;
+                top: 0%; 
+                left: 0%;
+            }
+        }
+        .colName{
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--ion-color-primary);
+        }
+    }
+
+    .rowImgAndText{
+        color: var(--ion-color-primary);
+        .colImg{
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+        }
+        .colText{
+            text-align: left;
+            font-size: 1.2rem;
+            .colTextTotal{
+                margin-top: 25%;
+                font-weight: 700;
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+}
+

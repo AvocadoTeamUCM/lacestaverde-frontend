@@ -21,21 +21,10 @@
       <p><span class="perfil-label">Tel: </span>(+34) 605142369</p>
     </ion-card-content>
   </ion-card>
-  <ion-text class="ion-text-center" color="primary">
-    <h2>Negocios</h2>
-  </ion-text>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Frutas Rodri</ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
-      Ven y compra mas manzanas y peras en la mejor fruteria.
-    </ion-card-content>
-   
-    <ion-button (click)="buttonClic_goBusiness()" expand="block" shape="round" color="primary">
-      Ir al negocio
-    </ion-button>
-  </ion-card>
+
+  <div class="divBusiness">
+    <ion-text class="textHead" color="primary">Mis Negocios</ion-text>
+    <app-business-card class="cardBusiness" (event_routerToBusiness)="this.buttonClic_goBusiness()"></app-business-card>
+  </div>  
 
 </ion-content>

@@ -1,0 +1,17 @@
+.cardBusiness{
+    position: relative;
+    border-style: solid;
+    border-color: var(--ion-color-primary);
+    border-width: 1px;
+
+    .colImg{
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+    }
+
+    .colText{
+        text-align: left;
+    }
+}
+

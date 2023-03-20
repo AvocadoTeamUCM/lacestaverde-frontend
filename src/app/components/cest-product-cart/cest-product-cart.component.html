@@ -1,0 +1,32 @@
+<ion-card class="cardCestProduct">
+  
+  <ion-grid fixed>
+
+    <ion-row class="rowTrashAndName">
+      <ion-col class="colIconTrash" size="5">
+        <ion-icon class="iconTrash" (click)="buttonClic_deleteProduct()"  name="trash-bin-outline" size="large" ></ion-icon>
+      </ion-col>
+      
+      <ion-col class="colName" size="7">
+        <ion-text (click)="emitEvent_goProduct()">Frutas Rodri</ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="rowImgAndText">
+      <ion-col class="colImg" size="5">
+        <img src="../../../assets/img/testBusiness.jpg" (click)="emitEvent_goProduct()">
+      </ion-col>
+
+      <ion-col size="7" class="colText">
+        <div><ion-text>1,20€/Kg<br></ion-text></div>
+        <div><app-buy-button [cuantity]=1 ></app-buy-button></div>
+        <div class="colTextTotal">
+          <ion-text >Total: 2,40€<br></ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+</ion-card>

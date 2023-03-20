@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-buy-button',
@@ -7,12 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuyButtonComponent  implements OnInit {
 
-  public cuantity:number = 0;
+  @Input() public cuantity:number = 0;
   public buyProductCheck:Boolean = false;
 
-  constructor() { }
-
-  ngOnInit() {}
+  constructor() {
+  }
+  
+  ngOnInit() {
+    if(this.cuantity>0){
+      this.buyProductCheck=true;
+    }
+    return;
+  }
 
 
   /************************************************************************** 
