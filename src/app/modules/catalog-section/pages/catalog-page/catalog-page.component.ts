@@ -24,7 +24,7 @@ export class CatalogPageComponent  implements OnInit {
    * DEDICATED METHODS
   ***************************************************************************/
   addNewItens(){
-    for( let i=0 ; i<5 ; i++){
+    for( let i=0 ; i<6 ; i++){
       this.numItens.push(1);
     }
     return;

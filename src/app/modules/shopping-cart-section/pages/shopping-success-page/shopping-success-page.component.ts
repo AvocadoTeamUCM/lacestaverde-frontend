@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-shopping-cart-page',
-  templateUrl: './shopping-cart-page.component.html',
-  styleUrls: ['./shopping-cart-page.component.scss'],
+  selector: 'app-shopping-success-page',
+  templateUrl: './shopping-success-page.component.html',
+  styleUrls: ['./shopping-success-page.component.scss'],
 })
-export class ShoppingCartPageComponent  implements OnInit {
+export class ShoppingSuccessPageComponent  implements OnInit {
 
   constructor(
     private router: Router
@@ -17,9 +17,10 @@ export class ShoppingCartPageComponent  implements OnInit {
   /************************************************************************** 
    * DEDICATED METHODS
   ***************************************************************************/
-  buttonClic_goProduct(){
-    this.router.navigateByUrl("/shopping-cart/success");
+  buttonClic_goToCatalog(){
+    this.router.navigateByUrl("/catalog");
     return;
   }
+
 
 }
