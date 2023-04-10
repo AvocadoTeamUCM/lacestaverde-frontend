@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path:"",
     children:[
-      {path: "", component:BusinessPageComponent},
+      {path: "businessId/:id", component:BusinessPageComponent},
       {path: "**", redirectTo:""}
     ]
   }

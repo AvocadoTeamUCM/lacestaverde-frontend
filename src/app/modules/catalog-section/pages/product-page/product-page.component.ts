@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router'
+import { map } from 'rxjs';
+import { ProductService } from 'src/app/services/product/product.service';
+import { Product } from '../../../../models/product';
+
+
 
 @Component({
   selector: 'app-product-page',
@@ -8,24 +14,43 @@ import { Router } from '@angular/router';
 })
 export class ProductPageComponent  implements OnInit {
 
+  public imageURL = '';
+  private productID = '';
+
+  public product: Product = {};
   public favorite:Boolean=false;
 
   constructor(
-    private router:Router
+    private router:Router,
+    private activatedRoute: ActivatedRoute,
+    private _service: ProductService,
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() { 
+    this.activatedRoute.params.subscribe(params => {
+      this.productID = params['id']
+    });
+    this.imageURL = this._service.imageURL
+    this.fetchProduct(this.productID)
+  }
 
 
   /************************************************************************** 
    * DEDICATED METHODS
   ***************************************************************************/
-  buttonClic_goBusiness(){
-    this.router.navigateByUrl("/business");
-    return;
+
+  fetchProduct(product_id: string) {
+    this._service.getProductById(product_id).pipe(
+      map(res => {
+        this.product = res
+      })
+    ).subscribe()
   }
 
-
+  buttonClic_goBusiness(businessId: string){
+    this.router.navigateByUrl(`/business/businessId/${businessId}`);
+    return;
+  }
 
   buttonClic_buyProduct(){
     return;
@@ -35,6 +60,8 @@ export class ProductPageComponent  implements OnInit {
     this.favorite = !this.favorite;
     return;
   }
+
+
 
 
 

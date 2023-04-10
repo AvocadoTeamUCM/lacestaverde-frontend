@@ -1,16 +1,16 @@
 <ion-card class="cardInCatalog">
   
-  <ion-img  src='../../../assets/img/testManzana.jpg' (click)="emitEvent_goProduct()"></ion-img>  
-  <ion-icon *ngIf="this.favorite==true" class="buttonFavorite" (click)="buttonClic_favorite()"  name="heart-sharp" size="large" ></ion-icon>
-  <ion-icon *ngIf="this.favorite==false" class="buttonFavorite" (click)="buttonClic_favorite()" name="heart-outline" size="large" ></ion-icon>
+  <ion-img  src='{{imageURL}}{{product.file}}' (click)="emitEvent_goProduct()"></ion-img>  
+  <ion-icon *ngIf="this.favorite" class="buttonFavorite" (click)="buttonClic_favorite()"  name="heart-sharp" size="large" ></ion-icon>
+  <ion-icon *ngIf="!this.favorite" class="buttonFavorite" (click)="buttonClic_favorite()" name="heart-outline" size="large" ></ion-icon>
   
   <ion-grid fixed>
     <ion-row>
-      <ion-title class="ion-text-center ion-text-blond" (click)="emitEvent_goProduct()"><b>Manzana</b></ion-title>
+      <ion-title class="ion-text-center ion-text-blond" (click)="emitEvent_goProduct()"><b>{{product.name}}</b></ion-title>
     </ion-row>
 
     <ion-row>
-      <ion-title class="ion-text-center ion-text-blond">1,20€/Kg</ion-title>
+      <ion-title class="ion-text-center ion-text-blond">{{product.price}}{{product.coin}}{{product.unit}}</ion-title>
     </ion-row>
     
     <ion-row>

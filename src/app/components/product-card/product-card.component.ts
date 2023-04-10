@@ -1,4 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
+import { Product } from 'src/app/models/product';
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
   selector: 'app-product-card',
@@ -8,11 +10,16 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class ProductCardComponent  implements OnInit {
 
   public favorite:Boolean=false;
+  public imageURL = ''
 
   @Output() event_routerToProduct = new EventEmitter<void>();
-  constructor() { }
+  @Input() product: Product = {}
 
-  ngOnInit() {}
+  constructor(private _productService: ProductService) { }
+
+  ngOnInit() {
+    this.imageURL = this._productService.imageURL;
+  }
 
 
   /************************************************************************** 

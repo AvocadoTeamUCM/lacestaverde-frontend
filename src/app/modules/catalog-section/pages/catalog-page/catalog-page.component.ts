@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
+import { Product } from 'src/app/models/product';
+import { map } from 'rxjs';
+import { ProductService } from 'src/app/services/product/product.service';
+
 
 @Component({
   selector: 'app-catalog-page',
@@ -10,13 +14,23 @@ import { InfiniteScrollCustomEvent } from '@ionic/angular';
 export class CatalogPageComponent  implements OnInit {
 
   public numItens:Array<number> = [];
+  public products: Product [] = []
 
   constructor(
     private router:Router,
+    private _productService: ProductService
   ) { }
 
   ngOnInit() {
     this.addNewItens();
+    
+    this.fetchProducts();
+  }
+
+  fetchProducts(){
+    this._productService.getProducts().pipe(
+      map(res => this.products = [... res])
+    ).subscribe()
   }
 
 
@@ -39,8 +53,8 @@ export class CatalogPageComponent  implements OnInit {
   }
 
 
-  goProduct(){
-    this.router.navigateByUrl("/catalog/product");
+  goProduct(productID: string){
+    this.router.navigateByUrl(`/catalog/product/${productID}`);
     return;
   }
 

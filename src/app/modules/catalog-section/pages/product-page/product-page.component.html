@@ -5,7 +5,7 @@
 <ion-content>
   
   <ion-card class="swipper">
-    <ion-img class="imgInSwipper" src="../../../../../assets/img/testManzana.jpg"></ion-img>  
+    <ion-img class="imgInSwipper" src='{{imageURL}}{{product.file}}'></ion-img>  
     <ion-icon *ngIf="this.favorite==true" class="buttonFavorite" (click)="buttonClic_favorite()"  name="heart-sharp" size="large" ></ion-icon>
     <ion-icon *ngIf="this.favorite==false" class="buttonFavorite" (click)="buttonClic_favorite()" name="heart-outline" size="large" ></ion-icon>
   </ion-card>
@@ -16,7 +16,7 @@
     <!-- ROW PRODUCT AND BUY BUTTON -->
     <ion-row class="rowNameAndBuy">
       <ion-col size="7">
-        <ion-text class="ion-text-left ion-text-blond ion-text">Manzana</ion-text>
+        <ion-text class="ion-text-left ion-text-blond ion-text">{{product.name}}</ion-text>
       </ion-col>
       
       <ion-col size="5">
@@ -27,29 +27,27 @@
     <!-- ROW PRICE OF PRODUCT -->
     <ion-row class="rowPrice">
       <ion-col size="12">
-        <ion-text class="titleNameProduct ion-text-left">1,20€/Kg</ion-text>
+        <ion-text class="titleNameProduct ion-text-left">{{product.price}}{{product.coin}}{{product.unit}}</ion-text>
       </ion-col>
     </ion-row>
     
     <!-- ROW NAME OF BUSINESS -->
     <ion-row class="rowBusiness">
       <ion-col size="12">
-        <ion-text class="ion-text-left" color="primary" (click)="buttonClic_goBusiness()">Frutas Rodri</ion-text>
+        <ion-text class="ion-text-left" color="primary" (click)="buttonClic_goBusiness(product.businessId?._id!)">{{product.businessId?.name}}</ion-text>
       </ion-col>
     </ion-row>
 
     <!-- ROW PRODUCT DESCRIPTION -->
     <ion-row class="rowDescription">
       <ion-col size="12">
-        <ion-text class="ion-text-left">Maravillosas manzanas llenas de nutrientes y libres de pesticidas, 
-          pensadas para que desfrutes de un sabor fresco y único. Nuestros productos son de una gran calidad y prometemos
-          que todos nuestros clientes quedarán encantados con los mismos.</ion-text>
+        <ion-text class="ion-text-left">{{product.description}}</ion-text>
       </ion-col>
     </ion-row>
 
   </ion-grid>
 
-  <app-product-stats></app-product-stats>
+  <app-product-stats [productName]="product.name!"></app-product-stats>
 
 
 

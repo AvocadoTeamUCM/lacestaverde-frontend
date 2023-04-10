@@ -6,18 +6,19 @@
 
 <ion-content>
   <ion-card>
-    <img alt="Business image" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+    <img alt="Business image" src='{{imageURL}}{{business.file}}' />
     <!-- <img class="profile-img" alt="Business image" src="assets/img/profile.png" /> -->
     <ion-card-header class="business-title">
-      <ion-card-title>Frutas Rodri</ion-card-title>
+      <ion-card-title>{{business.name}}</ion-card-title>
     </ion-card-header>
   
     <ion-card-content class="business-description">
         <ion-text>
-          La tienda de barrio de toda la vida. Ven y compra frutas, verduras y hortalizas a precios que no se veian desde antes de la pandemia. Recuerda que puedas realizar la reserva de tus articulos favoritos.
+          {{business.description}}
+          <!-- La tienda de barrio de toda la vida. Ven y compra frutas, verduras y hortalizas a precios que no se veian desde antes de la pandemia. Recuerda que puedas realizar la reserva de tus articulos favoritos. -->
         </ion-text>
       <ion-text class="business-address">
-        <p><span> Calle de Santa Gloria, nº 34 - A Coruña </span> </p>
+        <p><span> {{business.address}} </span> </p>
       </ion-text>
     </ion-card-content>
     
@@ -42,4 +43,3 @@
   </ion-button>
 
 </ion-content>
- 
