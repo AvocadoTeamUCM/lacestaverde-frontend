@@ -2,7 +2,7 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="this.isMobile" style="background-color: azure;">
+  <div *ngIf="this.isMobile">
     <div class="labelStyle_principalTitle">
       <ion-label>LA CESTA VERDE</ion-label>
     </div>
@@ -22,7 +22,31 @@
     </div>
   </div>
 
-  <div *ngIf="!this.isMobile" style="background-color: black;">
-  
-  </div>
+  <ion-grid *ngIf="!this.isMobile" [fixed]="true">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="7">
+        <div class="labelStyle_principalTitle">
+          <ion-label>ICONO</ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="5">
+        <div>
+          <div class="labelStyle_secondaryTitle">
+            <ion-label>LA CESTA VERDE</ion-label>
+          </div>
+          <form autocomplete="off" [formGroup]="formLogin" (ngSubmit)="login()">
+            <ion-input class="inputStyle_loginPage" type="email" formControlName="email" placeholder="Email"></ion-input>
+        
+            <ion-input class="inputStyle_loginPage"  type="password" formControlName="password" placeholder="Password"></ion-input>
+            
+            <ion-button class="buttonStyle_loginPage"  type="submit" expand="block" [disabled]="formLogin.invalid">Acceder</ion-button>
+          </form>
+          <div class="ion-margin">
+            <ion-label>¿No tienes cuenta? </ion-label>
+            <a href="#" routerLink="/access/createAccount">Crear una aquí</a>
+        </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
