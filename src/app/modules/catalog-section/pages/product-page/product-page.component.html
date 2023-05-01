@@ -3,54 +3,101 @@
 </ion-header>
 
 <ion-content>
-  
-  <ion-card class="swipper">
-    <ion-img *ngIf="product.file" class="imgInSwipper" src='{{imageURL}}{{product.file}}'></ion-img>  
-    <ion-icon *ngIf="this.favorite==true" class="buttonFavorite" (click)="buttonClic_favorite()"  name="heart-sharp" size="large" ></ion-icon>
-    <ion-icon *ngIf="this.favorite==false" class="buttonFavorite" (click)="buttonClic_favorite()" name="heart-outline" size="large" ></ion-icon>
-  </ion-card>
-  
 
-   <ion-grid fixed class="gridStyle">
+  <div *ngIf="this.isMobile">
 
-    <!-- ROW PRODUCT AND BUY BUTTON -->
-    <ion-row class="rowNameAndBuy">
-      <ion-col size="7">
-        <ion-text class="ion-text-left ion-text-blond ion-text">{{product.name}}</ion-text>
-      </ion-col>
-      
-      <ion-col size="5">
-        <app-buy-button></app-buy-button>
-      </ion-col>
-    </ion-row>
-
-    <!-- ROW PRICE OF PRODUCT -->
-    <ion-row class="rowPrice">
-      <ion-col size="12">
-        <ion-text class="titleNameProduct ion-text-left">{{product.price}}{{product.coin}}{{product.unit}}</ion-text>
-      </ion-col>
-    </ion-row>
+    <ion-card class="swipper">
+      <ion-img class="imgInSwipper" src='{{imageURL}}{{product.file}}'></ion-img>  
+      <ion-icon *ngIf="this.favorite==true" class="buttonFavorite" (click)="buttonClic_favorite()"  name="heart-sharp" size="large" ></ion-icon>
+      <ion-icon *ngIf="this.favorite==false" class="buttonFavorite" (click)="buttonClic_favorite()" name="heart-outline" size="large" ></ion-icon>
+    </ion-card>
     
-    <!-- ROW NAME OF BUSINESS -->
-    <ion-row class="rowBusiness">
-      <ion-col size="12">
-        <ion-text class="ion-text-left" color="primary" (click)="buttonClic_goBusiness(product.businessId?._id!)">{{product.businessId?.name}}</ion-text>
-      </ion-col>
-    </ion-row>
+    
+    <ion-grid fixed class="gridStyle">
+      
+      <!-- ROW PRODUCT AND BUY BUTTON -->
+      <ion-row class="rowNameAndBuy">
+        <ion-col size="7">
+          <ion-text class="ion-text-left ion-text-blond ion-text">{{product.name}}</ion-text>
+        </ion-col>
+        
+        <ion-col size="5">
+          <app-buy-button></app-buy-button>
+        </ion-col>
+      </ion-row>
+      
+      <!-- ROW PRICE OF PRODUCT -->
+      <ion-row class="rowPrice">
+        <ion-col size="12">
+          <ion-text class="titleNameProduct ion-text-left">{{product.price}}{{product.coin}}{{product.unit}}</ion-text>
+        </ion-col>
+      </ion-row>
+      
+      <!-- ROW NAME OF BUSINESS -->
+      <ion-row class="rowBusiness">
+        <ion-col size="12">
+          <ion-text class="ion-text-left" color="primary" (click)="buttonClic_goBusiness(product.businessId?._id!)">{{product.businessId?.name}}</ion-text>
+        </ion-col>
+      </ion-row>
+      
+      <!-- ROW PRODUCT DESCRIPTION -->
+      <ion-row class="rowDescription">
+        <ion-col size="12">
+          <ion-text class="ion-text-left">{{product.description}}</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    <app-product-stats [productName]="product.name!"></app-product-stats>
+  </div>
 
-    <!-- ROW PRODUCT DESCRIPTION -->
-    <ion-row class="rowDescription">
-      <ion-col size="12">
-        <ion-text class="ion-text-left">{{product.description}}</ion-text>
-      </ion-col>
-    </ion-row>
+    <ion-grid *ngIf="!this.isMobile" fixed>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="8">
+          <ion-card class="swipper">
+            <ion-img class="imgInSwipper" src='{{imageURL}}{{product.file}}'></ion-img>  
+            <ion-icon *ngIf="this.favorite==true" class="buttonFavorite" (click)="buttonClic_favorite()"  name="heart-sharp" size="large" ></ion-icon>
+            <ion-icon *ngIf="this.favorite==false" class="buttonFavorite" (click)="buttonClic_favorite()" name="heart-outline" size="large" ></ion-icon>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4">
+            <!-- ROW PRODUCT AND BUY BUTTON -->
+            <ion-row class="rowNameAndBuy">
+              <ion-col size="7">
+                <ion-text class="ion-text-left ion-text-blond ion-text">{{product.name}}</ion-text>
+              </ion-col>
+              
+              <ion-col size="5">
+                <app-buy-button></app-buy-button>
+              </ion-col>
+            </ion-row>
+            
+            <!-- ROW PRICE OF PRODUCT -->
+            <ion-row class="rowPrice">
+              <ion-col size="12">
+                <ion-text class="titleNameProduct ion-text-left">{{product.price}}{{product.coin}}{{product.unit}}</ion-text>
+              </ion-col>
+            </ion-row>
+            
+            <!-- ROW NAME OF BUSINESS -->
+            <ion-row class="rowBusiness">
+              <ion-col size="12">
+                <ion-text class="ion-text-left" color="primary" (click)="buttonClic_goBusiness(product.businessId?._id!)">{{product.businessId?.name}}</ion-text>
+              </ion-col>
+            </ion-row>
+            
+            <!-- ROW PRODUCT DESCRIPTION -->
+            <ion-row class="rowDescription">
+              <ion-col size="12">
+                <ion-text class="ion-text-left">{{product.description}}</ion-text>
+              </ion-col>
+            </ion-row>
 
-  </ion-grid>
-
-  <app-product-stats [productName]="product.name!"></app-product-stats>
-
-
-
+            <app-product-stats [productName]="product.name!"></app-product-stats>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   
-
+  
+  
 </ion-content>

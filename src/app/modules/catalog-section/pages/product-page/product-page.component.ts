@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router'
 import { map } from 'rxjs';
 import { ProductService } from 'src/app/services/product/product.service';
 import { Product } from '../../../../models/product';
+import { Platform } from '@ionic/angular';
 
 
 
@@ -20,11 +21,17 @@ export class ProductPageComponent  implements OnInit {
   public product: Product = {};
   public favorite:Boolean=false;
 
+  public isMobile: Boolean;
+
   constructor(
     private _router:Router,
     private _activatedRoute: ActivatedRoute,
     private _service: ProductService,
-  ) { }
+    public platform: Platform
+  ) 
+  { 
+    this.isMobile = !platform.is('desktop');
+  }
 
   ngOnInit() { 
     this._activatedRoute.params.subscribe(params => {

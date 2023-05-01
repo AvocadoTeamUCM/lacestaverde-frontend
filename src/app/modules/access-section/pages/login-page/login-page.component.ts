@@ -26,7 +26,6 @@ export class LoginPageComponent  implements OnInit {
       public platform: Platform
 ) { 
     this.statusInfo="";
-    console.log(platform.is('desktop'));
     this.isMobile = !platform.is('desktop');
   }
 
