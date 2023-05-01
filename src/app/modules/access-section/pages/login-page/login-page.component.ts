@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Platform } from '@ionic/angular';
 
 
 @Component({
@@ -16,12 +17,17 @@ export class LoginPageComponent  implements OnInit {
       password: ["101010", [Validators.required, Validators.minLength(6)]],
       //aceptService: ["true", Validators.required, Validators.requiredTrue]
   });
+
+  public isMobile: Boolean;
   
   constructor(
       private fb:FormBuilder,
       private router:Router,
+      public platform: Platform
 ) { 
-  this.statusInfo="";
+    this.statusInfo="";
+    console.log(platform.is('desktop'));
+    this.isMobile = !platform.is('desktop');
   }
 
   ngOnInit() {}
