@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-card>
-    <img alt="Business image" src='{{imageURL}}{{business.file}}' />
+    <img *ngIf="business.file" alt="Business image" src='{{imageURL}}{{business.file}}' />
     <!-- <img class="profile-img" alt="Business image" src="assets/img/profile.png" /> -->
     <ion-card-header class="business-title">
       <ion-card-title>{{business.name}}</ion-card-title>
@@ -15,7 +15,6 @@
     <ion-card-content class="business-description">
         <ion-text>
           {{business.description}}
-          <!-- La tienda de barrio de toda la vida. Ven y compra frutas, verduras y hortalizas a precios que no se veian desde antes de la pandemia. Recuerda que puedas realizar la reserva de tus articulos favoritos. -->
         </ion-text>
       <ion-text class="business-address">
         <p><span> {{business.address}} </span> </p>
@@ -25,16 +24,10 @@
   </ion-card>
 
   <ion-card>
-    <div id='map' style='width: 400px; height: 300px; margin: auto;'></div>
     <ion-card-header>
-      <ion-card-title>Localización</ion-card-title>
       <ion-card-subtitle>¿Cómo llegar?</ion-card-subtitle>
-
     </ion-card-header>
-    <!-- <ion-img src="assets/img/mapa.png" alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img> -->
-    <ion-card-content>
-      *Localizacion en el mapa*
-    </ion-card-content>
+    <div id='map' style='width: 400px; height: 300px; margin: auto;'></div>
   </ion-card>
 
 

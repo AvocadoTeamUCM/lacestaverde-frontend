@@ -1,0 +1,1 @@
+start cmd.exe /k "cd D:\Desoltech\Docker_projects\Nodejs\lacestaverde-frontend && npm start"

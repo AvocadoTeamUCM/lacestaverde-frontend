@@ -21,7 +21,6 @@ export class ProductService {
   };
 
   getNutritionalInfo(nameProduct: string) {
-    console.log(nameProduct)
     if(nameProduct == 'Manzana Golden') {
       this.prodName.productName = "manzana"
     }else {

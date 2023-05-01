@@ -21,13 +21,13 @@ export class ProductPageComponent  implements OnInit {
   public favorite:Boolean=false;
 
   constructor(
-    private router:Router,
-    private activatedRoute: ActivatedRoute,
+    private _router:Router,
+    private _activatedRoute: ActivatedRoute,
     private _service: ProductService,
   ) { }
 
   ngOnInit() { 
-    this.activatedRoute.params.subscribe(params => {
+    this._activatedRoute.params.subscribe(params => {
       this.productID = params['id']
     });
     this.imageURL = this._service.imageURL
@@ -48,7 +48,7 @@ export class ProductPageComponent  implements OnInit {
   }
 
   buttonClic_goBusiness(businessId: string){
-    this.router.navigateByUrl(`/business/businessId/${businessId}`);
+    this._router.navigateByUrl(`/business/businessId/${businessId}`);
     return;
   }
 
