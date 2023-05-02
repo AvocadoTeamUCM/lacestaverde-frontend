@@ -17,7 +17,6 @@ export class BusinessPageComponent  implements OnInit, OnDestroy {
   private lat: string = '';
   private lng: string = '';
 
-  
   constructor(
     private _activatedRouter:ActivatedRoute,
     private router: Router,
@@ -30,9 +29,8 @@ export class BusinessPageComponent  implements OnInit, OnDestroy {
       if(id !== null) {
         this._service.getBusinessById(id).subscribe(res=> {
           this.business = res;
-          this.lat = res.location?.[0]!;
-          this.lng = res.location?.[1]!;
-          console.log(this.lat, 'y', this.lng)
+          this.lat = res.location?.[1]!;
+          this.lng = res.location?.[0]!;
           const mapboxgl = require('mapbox-gl');
  
           mapboxgl.accessToken = 'pk.eyJ1IjoiYWxlamxlYWwiLCJhIjoiY2xmaWk2MzQwNGpqYzN5bnQ4MDFqeGJ2eSJ9.zaMfzrH3EN6hqtpiMIXaWw';
@@ -40,7 +38,7 @@ export class BusinessPageComponent  implements OnInit, OnDestroy {
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/streets-v12', // style URL
             center: [this.lng, this.lat], // starting position [lng, lat]
-            zoom: 9, // starting zoom
+            zoom: 15, // starting zoom
           });
         });
       }
@@ -50,7 +48,6 @@ export class BusinessPageComponent  implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.lat = '';
     this.lng = '';
-    console.log(this.lat, 'y', this.lng)
   };
 
   /************************************************************************** 
