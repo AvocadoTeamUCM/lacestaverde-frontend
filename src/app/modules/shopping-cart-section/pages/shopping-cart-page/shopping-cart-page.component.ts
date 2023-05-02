@@ -40,4 +40,8 @@ export class ShoppingCartPageComponent  implements OnInit, OnChanges{
     return;
   }
 
+  goProduct(productId: string){
+    this.router.navigateByUrl(`/catalog/product/${productId}`);
+  }
+
 }

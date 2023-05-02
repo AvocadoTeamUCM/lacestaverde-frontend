@@ -11,7 +11,7 @@
         <img class="profile-avatar" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
       </ion-avatar> -->
       <ion-card-header class="profile-header">
-        <ion-card-title >Aurora Pérez Rodriguez</ion-card-title>
+        <ion-card-title >{{profile.name}}</ion-card-title>
       </ion-card-header>
     
       <ion-card-content>
@@ -26,7 +26,9 @@
 
     <div class="divBusiness">
       <ion-text class="textHead" color="primary">Mis Negocios</ion-text>
-      <app-business-card class="cardBusiness" (event_routerToBusiness)="this.buttonClic_goBusiness()"></app-business-card>
+      <div *ngFor="let business of businessUserId">
+        <app-business-card class="cardBusiness" [businessUser]="business" (event_routerToBusiness)="this.buttonClic_goBusiness()"></app-business-card>
+      </div>
     </div>  
 
   </div>
@@ -54,7 +56,10 @@
     <ion-row class="ion-align-items-center">
       <div class="divBusiness">
         <ion-text class="textHead" color="primary">Mis Negocios</ion-text>
-        <app-business-card class="cardBusiness" (event_routerToBusiness)="this.buttonClic_goBusiness()"></app-business-card>
+        <div *ngFor="let business of businessUserId">
+          <app-business-card class="cardBusiness" [businessUser]="business" (event_routerToBusiness)="this.buttonClic_goBusiness()"></app-business-card>
+        </div>
+        <!-- <app-business-card class="cardBusiness"  (event_routerToBusiness)="this.buttonClic_goBusiness()"></app-business-card> -->
       </div>    
     </ion-row>
   </ion-grid>

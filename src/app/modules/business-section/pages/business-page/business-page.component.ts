@@ -43,13 +43,13 @@ export class BusinessPageComponent  implements OnInit, OnDestroy {
           const map = new mapboxgl.Map({
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/streets-v12', // style URL
-            center: [this.lat, this.lng], // starting position [lng, lat]
+            center: [this.lng, this.lat], // starting position [lng, lat]
             zoom: 14, // starting zoom
 
           });
 
           const marker = new mapboxgl.Marker({color:'red'})
-            .setLngLat([this.lat, this.lng])
+            .setLngLat([this.lng, this.lat])
             .addTo(map);
         });
       }

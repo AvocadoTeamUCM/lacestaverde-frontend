@@ -18,4 +18,9 @@ export class BusinessServiceService {
   getBusinessById(businessId: string) {
     return this._http.get<Business>(`${this.baseURL}business/${businessId}`)
   }
+  getBusinessByUserId(userId: string) {
+    return this._http.get<Business[]>(`${this.baseURL}business/byUserId/${userId}`)
+  }
+  
+
 }

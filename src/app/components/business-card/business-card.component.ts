@@ -1,17 +1,31 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input, OnChanges } from '@angular/core';
+import { Business } from 'src/app/models/business';
+import { BusinessServiceService } from 'src/app/services/business/business-service.service';
+
 
 @Component({
   selector: 'app-business-card',
   templateUrl: './business-card.component.html',
   styleUrls: ['./business-card.component.scss'],
 })
-export class BusinessCardComponent  implements OnInit {
+export class BusinessCardComponent  implements OnInit, OnChanges {
 
   @Output() event_routerToBusiness = new EventEmitter<void>();
-  
-  constructor() { }
+  @Input() businessUser!: Business 
 
-  ngOnInit() {}
+  business!: Business
+  imageURL = ''
+  
+  constructor(private service: BusinessServiceService) { }
+
+  ngOnInit() {
+    
+  }
+
+  ngOnChanges() {
+    this.business = this.businessUser
+    this.imageURL = this.service.imageURL
+  }
 
 
   /************************************************************************** 
