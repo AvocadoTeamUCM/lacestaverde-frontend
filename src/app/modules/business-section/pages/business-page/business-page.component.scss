@@ -18,3 +18,21 @@ ion-card-header.ios {
     font-weight: bold;
     font-size: 15px;
 }
+
+
+ion-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-grid {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+ion-row {
+    flex-grow: 1;
+}
