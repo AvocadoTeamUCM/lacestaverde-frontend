@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile-page',
@@ -8,9 +9,14 @@ import { Router } from '@angular/router';
 })
 export class ProfilePageComponent  implements OnInit {
 
+  public isMobile: Boolean;
+
   constructor(
-    private router:Router
-  ) { }
+    private router:Router,
+    public platform: Platform
+  ) { 
+    this.isMobile = !platform.is('desktop');
+  }
 
   ngOnInit() {}
 

@@ -3,28 +3,60 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-    <!-- <ion-avatar class="profile-avatar">
-      <img class="profile-avatar" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-    </ion-avatar> -->
-    <ion-card-header class="profile-header">
-      <ion-card-title >Aurora Pérez Rodriguez</ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
-      <p><span class="perfil-label">DNI: </span>999999999R</p>
-      <p><span class="perfil-label">Edad: </span>34</p>
-      <p><span class="perfil-label">Genero: </span>Masculino</p>
-      <p><span class="perfil-label">Dirección: </span>Calle Cartagena 125, B</p>
-      <p><span class="perfil-label">Codigo postal: </span>28035</p>
-      <p><span class="perfil-label">Tel: </span>(+34) 605142369</p>
-    </ion-card-content>
-  </ion-card>
+  <div *ngIf="this.isMobile">
 
-  <div class="divBusiness">
-    <ion-text class="textHead" color="primary">Mis Negocios</ion-text>
-    <app-business-card class="cardBusiness" (event_routerToBusiness)="this.buttonClic_goBusiness()"></app-business-card>
-  </div>  
+    <ion-card>
+      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+      <!-- <ion-avatar class="profile-avatar">
+        <img class="profile-avatar" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar> -->
+      <ion-card-header class="profile-header">
+        <ion-card-title >Aurora Pérez Rodriguez</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <p><span class="perfil-label">DNI: </span>999999999R</p>
+        <p><span class="perfil-label">Edad: </span>34</p>
+        <p><span class="perfil-label">Genero: </span>Masculino</p>
+        <p><span class="perfil-label">Dirección: </span>Calle Cartagena 125, B</p>
+        <p><span class="perfil-label">Codigo postal: </span>28035</p>
+        <p><span class="perfil-label">Tel: </span>(+34) 605142369</p>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="divBusiness">
+      <ion-text class="textHead" color="primary">Mis Negocios</ion-text>
+      <app-business-card class="cardBusiness" (event_routerToBusiness)="this.buttonClic_goBusiness()"></app-business-card>
+    </div>  
+
+  </div>
+
+  <ion-grid fixed *ngIf="!this.isMobile">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="5" style="text-align: center;">
+        <img alt="Avatar" style="object-fit: cover; padding: 20px" src="https://returntofreedom.org/store/wp-content/uploads/default-placeholder.png"/>
+      </ion-col>
+      <ion-col size="7">
+        <ion-card-header class="profile-header">
+          <ion-card-title >Aurora Pérez Rodriguez</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <p><span class="perfil-label">DNI: </span>999999999R</p>
+          <p><span class="perfil-label">Edad: </span>34</p>
+          <p><span class="perfil-label">Genero: </span>Masculino</p>
+          <p><span class="perfil-label">Dirección: </span>Calle Cartagena 125, B</p>
+          <p><span class="perfil-label">Codigo postal: </span>28035</p>
+          <p><span class="perfil-label">Tel: </span>(+34) 605142369</p>
+        </ion-card-content>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <div class="divBusiness">
+        <ion-text class="textHead" color="primary">Mis Negocios</ion-text>
+        <app-business-card class="cardBusiness" (event_routerToBusiness)="this.buttonClic_goBusiness()"></app-business-card>
+      </div>    
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
