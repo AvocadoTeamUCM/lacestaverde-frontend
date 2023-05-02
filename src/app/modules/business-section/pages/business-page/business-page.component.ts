@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Business } from 'src/app/models/business';
 import { ActivatedRoute, Params } from '@angular/router';
 import { BusinessServiceService } from 'src/app/services/business/business-service.service';
-import { map, mapTo } from 'rxjs';
+import { map } from 'rxjs';
 import { Platform } from '@ionic/angular';
 
 @Component({

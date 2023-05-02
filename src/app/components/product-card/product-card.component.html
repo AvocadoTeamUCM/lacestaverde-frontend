@@ -1,8 +1,8 @@
 <ion-card class="cardInCatalog">
   
   <ion-img  src='{{imageURL}}{{product.file}}' (click)="emitEvent_goProduct()"></ion-img>  
-  <ion-icon *ngIf="this.favorite" class="buttonFavorite" (click)="buttonClic_favorite()"  name="heart-sharp" size="large" ></ion-icon>
-  <ion-icon *ngIf="!this.favorite" class="buttonFavorite" (click)="buttonClic_favorite()" name="heart-outline" size="large" ></ion-icon>
+  <ion-icon *ngIf="this.favorite" class="buttonFavorite" (click)="buttonClic_favorite()"  name="heart-sharp"></ion-icon>
+  <ion-icon *ngIf="!this.favorite" class="buttonFavorite" (click)="buttonClic_favorite()" name="heart-outline"></ion-icon>
   
   <ion-grid fixed>
     <ion-row>

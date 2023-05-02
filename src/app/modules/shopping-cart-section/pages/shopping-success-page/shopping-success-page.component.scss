@@ -1,3 +1,20 @@
 .imgDelivery{
     width: 50%;
 }
+
+ion-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-grid {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+ion-row {
+    flex-grow: 1;
+}

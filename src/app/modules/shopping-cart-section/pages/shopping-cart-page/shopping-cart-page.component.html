@@ -3,25 +3,105 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title><span>Total: </span>24.60 €</ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content class="address-card-content">
-      <p><span>Dirección de envío</span></p>
-      <p>Av. Santiago nº 27</p>
-      <p>San Mariano del Corazón - 23076</p>
-      <p>Aurora Pérez Rodriguez</p>
-      <ion-button (click)="buttonClic_goProduct()" expand="block" shape="round">
-        Finalizar Compra
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
+  <div *ngIf="this.isMobile">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title><span>Total: </span>24.60 €</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content class="address-card-content">
+        <p><span>Dirección de envío</span></p>
+        <p>Av. Santiago nº 27</p>
+        <p>San Mariano del Corazón - 23076</p>
+        <p>Aurora Pérez Rodriguez</p>
+        <ion-button (click)="buttonClic_goProduct()" expand="block" shape="round">
+          Finalizar Compra
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
 
-  <div class="divArticles">
-    <ion-text class="textHead" color="primary">Artículos</ion-text>
-    <app-cest-product-cart class="divArticles" (event_routerToProduct)="this.buttonClic_goProduct()"></app-cest-product-cart>
-  </div>  
+    <!-- <div class="divArticles">
+      <ion-text class="textHead" color="primary">Artículos</ion-text>
+      <app-cest-product-cart class="divArticles" (event_routerToProduct)="this.buttonClic_goProduct()"></app-cest-product-cart>
+    </div>   -->
 
+    <ion-list>
+      <ion-item *ngFor="let product of products;">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="3">
+              <ion-card>
+                <img alt="Avatar" style="object-fit: cover" src="https://returntofreedom.org/store/wp-content/uploads/default-placeholder.png"/>
+              </ion-card>
+            </ion-col>
+            <ion-col>
+              <ion-grid>
+                <ion-row class="rowNameAndBuy">
+                  <ion-col size="7">
+                    <ion-text class="ion-text-left ion-text-blond ion-text">{{product.name}}</ion-text>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-col>
+            <ion-col size="2">
+              <ion-text class="titleNameProduct ion-text-left">{{product.price}}{{product.coin}}{{product.unit}}</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </div>
+
+    <ion-grid fixed *ngIf="!this.isMobile">
+      <ion-row>
+        <ion-col size="8">
+          <ion-list>
+            <ion-item *ngFor="let product of products;">
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="4">
+                    <ion-card>
+                      <img alt="Avatar" style="object-fit: cover" src="https://returntofreedom.org/store/wp-content/uploads/default-placeholder.png"/>
+                    </ion-card>
+                  </ion-col>
+                  <ion-col>
+                    <ion-grid>
+                      <ion-row class="rowNameAndBuy">
+                        <ion-col size="6">
+                          <ion-text class="ion-text-left ion-text-blond ion-text">{{product.name}}</ion-text>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-col>
+                  <ion-col size="2">
+                    <ion-text class="titleNameProduct ion-text-left">{{product.price}}{{product.coin}}{{product.unit}}</ion-text>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+          </ion-list>
+          <!-- <div class="divArticles">
+            <ion-text class="textHead" color="primary">Artículos</ion-text>
+            <app-cest-product-cart class="divArticles" (event_routerToProduct)="this.buttonClic_goProduct()"></app-cest-product-cart>
+          </div>   -->
+        </ion-col>
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title><span>Total: </span>24.60 €</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content class="address-card-content">
+              <p><span>Dirección de envío</span></p>
+              <p>Av. Santiago nº 27</p>
+              <p>San Mariano del Corazón - 23076</p>
+              <p>Aurora Pérez Rodriguez</p>
+              <ion-button (click)="buttonClic_goProduct()" expand="block" shape="round">
+                Finalizar Compra
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>
