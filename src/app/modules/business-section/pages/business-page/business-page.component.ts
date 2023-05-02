@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { Business } from 'src/app/models/business';
 import { ActivatedRoute, Params } from '@angular/router';
 import { BusinessServiceService } from 'src/app/services/business/business-service.service';
-import { map } from 'rxjs';
+import { map, mapTo } from 'rxjs';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-business-page',
@@ -16,11 +17,16 @@ export class BusinessPageComponent  implements OnInit, OnDestroy {
   public imageURL: string = '';
   private lat: string = '';
   private lng: string = '';
-
+  public isMobile: Boolean;
+  
   constructor(
     private _activatedRouter:ActivatedRoute,
     private router: Router,
-    private _service: BusinessServiceService) { }
+    private _service: BusinessServiceService,
+    public platform: Platform) 
+  {
+    this.isMobile = !platform.is('desktop');
+  }
 
   ngOnInit() {
     this.imageURL = this._service.imageURL;
@@ -37,9 +43,14 @@ export class BusinessPageComponent  implements OnInit, OnDestroy {
           const map = new mapboxgl.Map({
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/streets-v12', // style URL
-            center: [this.lng, this.lat], // starting position [lng, lat]
-            zoom: 15, // starting zoom
+            center: [this.lat, this.lng], // starting position [lng, lat]
+            zoom: 14, // starting zoom
+
           });
+
+          const marker = new mapboxgl.Marker({color:'red'})
+            .setLngLat([this.lat, this.lng])
+            .addTo(map);
         });
       }
     });
