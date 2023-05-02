@@ -35,9 +35,8 @@ export class BusinessPageComponent  implements OnInit, OnDestroy {
       if(id !== null) {
         this._service.getBusinessById(id).subscribe(res=> {
           this.business = res;
-          this.lat = res.location?.[0]!;
-          this.lng = res.location?.[1]!;
-          console.log(this.lat, 'y', this.lng)
+          this.lat = res.location?.[1]!;
+          this.lng = res.location?.[0]!;
           const mapboxgl = require('mapbox-gl');
  
           mapboxgl.accessToken = 'pk.eyJ1IjoiYWxlamxlYWwiLCJhIjoiY2xmaWk2MzQwNGpqYzN5bnQ4MDFqeGJ2eSJ9.zaMfzrH3EN6hqtpiMIXaWw';
@@ -46,6 +45,7 @@ export class BusinessPageComponent  implements OnInit, OnDestroy {
             style: 'mapbox://styles/mapbox/streets-v12', // style URL
             center: [this.lat, this.lng], // starting position [lng, lat]
             zoom: 14, // starting zoom
+
           });
 
           const marker = new mapboxgl.Marker({color:'red'})
@@ -59,7 +59,6 @@ export class BusinessPageComponent  implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.lat = '';
     this.lng = '';
-    console.log(this.lat, 'y', this.lng)
   };
 
   /************************************************************************** 

@@ -1,45 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , OnChanges, SimpleChanges} from '@angular/core';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
-
-import { Platform } from '@ionic/angular';
-
+import { CartService } from 'src/app/services/cart/cart.service';
 import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product/product.service';
-
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-shopping-cart-page',
   templateUrl: './shopping-cart-page.component.html',
   styleUrls: ['./shopping-cart-page.component.scss'],
 })
-export class ShoppingCartPageComponent  implements OnInit {
+export class ShoppingCartPageComponent  implements OnInit, OnChanges{
 
   public isMobile: Boolean;
-
-  public products: Product [] = [];
+  $total = 0
+  cartProducts: Product[]=[];
 
   constructor(
     private router: Router,
-    public platform: Platform,
-    private _productService: ProductService
-  ) 
-  { 
+    private cartService: CartService,
+    public platform: Platform
+  ) { 
     this.isMobile = !platform.is('desktop');
-
-    this._productService.getProducts().pipe(
-      map(res => this.products = [... res])
-    ).subscribe();
-
-    console.log(this.products.length);
   }
 
-  ngOnInit() {}
+  ngOnChanges(changes: SimpleChanges): void {
+  }
+
+  ngOnInit() {
+  }
 
   /************************************************************************** 
    * DEDICATED METHODS
   ***************************************************************************/
+
+  cestaProducts(products:Product[]){
+    this.$total = 0
+    this.cartProducts = products
+    this.cartProducts.map(p => {
+      this.$total += (p.quantity! * p.price!)
+    })
+  }
   buttonClic_goProduct(){
+    this.$total = 0
+    this.cartService.removeAll();
     this.router.navigateByUrl("/shopping-cart/success");
     return;
   }

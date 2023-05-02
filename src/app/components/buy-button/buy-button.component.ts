@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-buy-button',
@@ -7,14 +9,16 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BuyButtonComponent  implements OnInit {
 
-  @Input() public cuantity:number = 0;
+  @Input() public cuantity?:number = 0;
+  @Input () product: Product = {};
+ 
   public buyProductCheck:Boolean = false;
 
-  constructor() {
+  constructor(private cartService: CartService) {
   }
   
   ngOnInit() {
-    if(this.cuantity>0){
+    if(this.cuantity!>0){
       this.buyProductCheck=true;
     }
     return;
@@ -24,9 +28,11 @@ export class BuyButtonComponent  implements OnInit {
   /************************************************************************** 
    * DEDICATED METHODS
   ***************************************************************************/
-  buttonClic_buyProduct(num:number){
+  
+  buttonClick_buyProduct(num:number){
+    this.cartService.addProduct(this.product);
     this.buyProductCheck=true;
-    this.cuantity += num;
+    this.cuantity! += num;
     return;
   }
 

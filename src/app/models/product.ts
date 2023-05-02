@@ -3,9 +3,10 @@ import { Business } from "./business"
 export interface Product {
     _id?: string;
     name?: string;
-    price?: string;
+    price?: number;
     coin?: string;
     unit?: string;
+    quantity?:number;
     description?: string;
     categoryId?: string;
     businessId?: Business;

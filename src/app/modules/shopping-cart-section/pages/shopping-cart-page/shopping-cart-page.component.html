@@ -3,12 +3,13 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="this.isMobile">
+  <div *ngIf="!this.isMobile">
+
     <ion-card>
       <ion-card-header>
-        <ion-card-title><span>Total: </span>24.60 €</ion-card-title>
+        <ion-card-title><span>Total: </span>{{$total}} €</ion-card-title>
       </ion-card-header>
-    
+      
       <ion-card-content class="address-card-content">
         <p><span>Dirección de envío</span></p>
         <p>Av. Santiago nº 27</p>
@@ -19,43 +20,17 @@
         </ion-button>
       </ion-card-content>
     </ion-card>
-
-    <!-- <div class="divArticles">
+    
+    <div class="divArticles">
       <ion-text class="textHead" color="primary">Artículos</ion-text>
-      <app-cest-product-cart class="divArticles" (event_routerToProduct)="this.buttonClic_goProduct()"></app-cest-product-cart>
-    </div>   -->
-
-    <ion-list>
-      <ion-item *ngFor="let product of products;">
-        <ion-grid>
-          <ion-row>
-            <ion-col size="3">
-              <ion-card>
-                <img alt="Avatar" style="object-fit: cover" src="https://returntofreedom.org/store/wp-content/uploads/default-placeholder.png"/>
-              </ion-card>
-            </ion-col>
-            <ion-col>
-              <ion-grid>
-                <ion-row class="rowNameAndBuy">
-                  <ion-col size="7">
-                    <ion-text class="ion-text-left ion-text-blond ion-text">{{product.name}}</ion-text>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-            </ion-col>
-            <ion-col size="2">
-              <ion-text class="titleNameProduct ion-text-left">{{product.price}}{{product.coin}}{{product.unit}}</ion-text>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
-    </ion-list>
+      <app-cest-product-cart class="divArticles" (listProducts)="this.cestaProducts($event)" (event_routerToProduct)="this.buttonClic_goProduct()"></app-cest-product-cart>
+    </div>  
   </div>
 
     <ion-grid fixed *ngIf="!this.isMobile">
       <ion-row>
         <ion-col size="8">
-          <ion-list>
+          <!-- <ion-list>
             <ion-item *ngFor="let product of products;">
               <ion-grid>
                 <ion-row>
@@ -79,7 +54,7 @@
                 </ion-row>
               </ion-grid>
             </ion-item>
-          </ion-list>
+          </ion-list> -->
           <!-- <div class="divArticles">
             <ion-text class="textHead" color="primary">Artículos</ion-text>
             <app-cest-product-cart class="divArticles" (event_routerToProduct)="this.buttonClic_goProduct()"></app-cest-product-cart>
