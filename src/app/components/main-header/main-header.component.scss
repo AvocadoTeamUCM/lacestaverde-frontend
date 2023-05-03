@@ -1,0 +1,22 @@
+img {
+    object-fit: scale-down;
+}
+
+ion-button[shape=round]
+
+ion-toolbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-grid {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+ion-row {
+    flex-grow: 1;
+}

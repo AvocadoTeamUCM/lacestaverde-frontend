@@ -1,11 +1,14 @@
 <div class="divStyle_headFrame">
   <ion-toolbar>
     
+    <ion-grid>
 
-    <ion-row *ngIf="actualPage=='catalog'">
+
+    <ion-row *ngIf="actualPage=='catalog'" class="ion-align-items-center">
 
       <ion-col>
         <ion-title class="ion-text-center" color="primary" (click)="buttonClic_goCatalog()">La cesta <br> verde</ion-title>
+        <!-- <img src="../../../../../assets/img/CestaVerde_1.png" (click)="buttonClic_goCatalog()"> -->
       </ion-col>
 
       <!-- <ion-col size="auto">
@@ -15,15 +18,15 @@
       </ion-col> -->
       
       <ion-col size="auto">
-        <ion-button *ngIf="actualPage=='catalog'" (click)="buttonClic_goProfile()" size="small">
-          <ion-icon slot="icon-only" name="search-circle-outline"></ion-icon>
+        <ion-button *ngIf="actualPage=='catalog'" (click)="buttonClic_goProfile()">
+          <ion-icon slot="icon-only" name="search"></ion-icon>
         </ion-button>
         
-        <ion-button *ngIf="actualPage!='profile'" (click)="buttonClic_goProfile()" size="small">
+        <ion-button *ngIf="actualPage!='profile'" (click)="buttonClic_goProfile()">
           <ion-icon slot="icon-only" name="person-outline"></ion-icon>
         </ion-button>
         
-        <ion-button *ngIf="actualPage!='shoppingCart'" (click)="buttonClic_goShoppingCart()" size="small">
+        <ion-button *ngIf="actualPage!='shoppingCart'" (click)="buttonClic_goShoppingCart()">
           <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
         </ion-button>
       </ion-col>  
@@ -37,20 +40,22 @@
 
       <ion-col>
         <ion-title class="ion-text-center" color="primary" (click)="buttonClic_goCatalog()">La cesta <br> verde</ion-title>
+        <!-- <img src="../../../../../assets/img/CestaVerde_1.png" (click)="buttonClic_goCatalog()"> -->
       </ion-col>
       
       <ion-col size="auto">        
-        <ion-button *ngIf="actualPage!='profile'" (click)="buttonClic_goProfile()" size="small">
+        <ion-button *ngIf="actualPage!='profile'" (click)="buttonClic_goProfile()">
           <ion-icon slot="icon-only" name="person-outline"></ion-icon>
         </ion-button>
 
-        <ion-button *ngIf="actualPage!='shoppingCart'" (click)="buttonClic_goShoppingCart()" size="small">
+        <ion-button *ngIf="actualPage!='shoppingCart'" (click)="buttonClic_goShoppingCart()">
           <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
         </ion-button>
       </ion-col>  
     </ion-row>
 
 
+  </ion-grid>
   </ion-toolbar>
 </div>
 
