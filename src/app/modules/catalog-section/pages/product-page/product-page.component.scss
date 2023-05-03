@@ -10,15 +10,18 @@
     }
     
     .buttonFavorite{
+        font-size: 30px;
         position: absolute;
-        top: 0%; 
-        left: 90%;
+        top: 5%; 
+        right: 5%;
         color: red;
     }
 
 }
 
-
+.rowQrCode {
+    text-align: center;
+}
 
 .gridStyle{
     

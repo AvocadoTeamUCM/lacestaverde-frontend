@@ -37,8 +37,9 @@ export class ProfilePageComponent  implements OnInit {
   /************************************************************************** 
    * DEDICATED METHODS
   ***************************************************************************/
-  buttonClic_goBusiness(){
-    this.router.navigateByUrl("/business");
+  buttonClic_goBusiness(businessId: string){
+    console.log(businessId)
+    this.router.navigateByUrl(`/business/businessId/${businessId}`);
     return;
   }
 

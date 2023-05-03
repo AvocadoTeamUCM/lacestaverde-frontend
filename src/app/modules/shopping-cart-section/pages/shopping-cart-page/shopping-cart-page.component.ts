@@ -2,6 +2,7 @@ import { Component, OnInit , OnChanges, SimpleChanges} from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { Product } from 'src/app/models/product';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-shopping-cart-page',
@@ -10,12 +11,18 @@ import { Product } from 'src/app/models/product';
 })
 export class ShoppingCartPageComponent  implements OnInit, OnChanges{
 
+  public isMobile: Boolean;
   $total = 0
-  cartProducts: Product[]=[]
+  cartProducts: Product[]=[];
+
   constructor(
     private router: Router,
-    private cartService: CartService
-  ) { }
+    private cartService: CartService,
+    public platform: Platform
+  ) { 
+    this.isMobile = !platform.is('desktop');
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
   }
 

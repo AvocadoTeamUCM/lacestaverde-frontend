@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { Platform } from '@ionic/angular';
+
 @Component({
   selector: 'app-create-account-page',
   templateUrl: './create-account-page.component.html',
@@ -16,10 +18,15 @@ export class CreateAccountPageComponent  implements OnInit {
     aceptTerms: [true, [Validators.required, Validators.requiredTrue]]
   })
 
+  public isMobile: Boolean;
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
-  ){}
+    public platform: Platform,
+  ){
+    this.isMobile = !platform.is('desktop');
+  }
 
   ngOnInit() {}
 

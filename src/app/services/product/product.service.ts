@@ -29,7 +29,13 @@ export class ProductService {
     return this._http.post(`${this.baseURL}product/nutritionalInfo`, this.prodName)
   }
 
+  getQrCode(productId: string) {
+    return this._http.get<{}>(`${this.baseURL}product/qrgenerator/${productId}`)
+  }
+
   getProductById(productId: string){
     return this._http.get<Product>(`${this.baseURL}product/${productId}`);
   };
+
+  
 }

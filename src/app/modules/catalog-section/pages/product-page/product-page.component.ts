@@ -17,7 +17,8 @@ export class ProductPageComponent  implements OnInit {
 
   public imageURL = '';
   private productID = '';
-
+  
+  public qrCode = 'Jose eduardo';
   public product: Product = {};
   public favorite:Boolean=false;
 
@@ -39,6 +40,7 @@ export class ProductPageComponent  implements OnInit {
     });
     this.imageURL = this._service.imageURL
     this.fetchProduct(this.productID)
+    this._service.getQrCode(this.productID)
   }
 
 
@@ -50,6 +52,18 @@ export class ProductPageComponent  implements OnInit {
     this._service.getProductById(product_id).pipe(
       map(res => {
         this.product = res
+        this._service.getNutritionalInfo(this.product.name!).subscribe(res => {
+          const nutritional = res
+          const productInfo = {
+            Nombre:this.product.name,
+            Precio: this.product.price,
+            Descripcion: this.product.description,
+            Tienda: this.product.businessId?.name,
+            Direccion: this.product.businessId?.address,
+            "Información Nutricional": nutritional
+          }
+          this.qrCode = JSON.stringify(productInfo).slice(1, -1)
+        });
       })
     ).subscribe()
   }
@@ -67,11 +81,5 @@ export class ProductPageComponent  implements OnInit {
     this.favorite = !this.favorite;
     return;
   }
-
-
-
-
-
-
 
 }

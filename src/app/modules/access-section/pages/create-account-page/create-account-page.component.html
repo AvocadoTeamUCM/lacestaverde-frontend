@@ -2,30 +2,69 @@
 </ion-header>
 
 <ion-content>
-  <div class="labelStyle_secondaryTitle">
-    <ion-label>Nuevo usuario</ion-label>
-  </div>
-
-  <form class="" autocomplete="off" [formGroup]="formCreateAccount" (ngSubmit)="registrarse()">          
-    <ion-input class="inputStile_loginPage" type="text" formControlName="name" placeholder="Nombre"></ion-input>
-
-    <ion-input class="inputStile_loginPage" type="email" formControlName="email" placeholder="Email"></ion-input>
-
-    <ion-input class="inputStile_loginPage" type="password" formControlName="password" placeholder="Contraseña"></ion-input>   
-
-    <ion-item>
-      <ion-checkbox type="aceptTerms" slot="start"></ion-checkbox>
-      <ion-label>Acepto los Términos y condiciones</ion-label>
-    </ion-item>   
-
-    <ion-button class="buttonStile_loginPage" type="submit" expand="block" [disabled]="formCreateAccount.invalid">Registrar</ion-button>
-    
-
-    <div class="ion-margin">
-        <span class="">¿Ya tienes una cuenta?</span>
-        <a href="#" class="" routerLink="/access/login">Ingresa aqui</a>
+  <div *ngIf="this.isMobile">
+    <div class="labelStyle_secondaryTitle">
+      <ion-label>Nuevo usuario</ion-label>
     </div>
-  </form>
+  
+    <form class="" autocomplete="off" [formGroup]="formCreateAccount" (ngSubmit)="registrarse()">          
+      <ion-input class="inputStyle_loginPage" type="text" formControlName="name" placeholder="Nombre"></ion-input>
+  
+      <ion-input class="inputStyle_loginPage" type="email" formControlName="email" placeholder="Email"></ion-input>
+  
+      <ion-input class="inputStyle_loginPage" type="password" formControlName="password" placeholder="Contraseña"></ion-input>   
+  
+      <ion-item>
+        <ion-checkbox type="aceptTerms" slot="start"></ion-checkbox>
+        <ion-label>Acepto los Términos y condiciones</ion-label>
+      </ion-item>   
+  
+      <ion-button class="buttonStyle_loginPage" type="submit" expand="block" [disabled]="formCreateAccount.invalid">Registrar</ion-button>
+      
+  
+      <div class="ion-margin">
+          <span class="">¿Ya tienes una cuenta?</span>
+          <a href="#" class="" routerLink="/access/login">Ingresa aqui</a>
+      </div>
+    </form>
+  </div>
+  
+  <ion-grid *ngIf="!this.isMobile" [fixed]="true">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="7">
+        <div class="labelStyle_principalTitle">
+          <ion-label>ICONO</ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="5">
+        <div class="labelStyle_secondaryTitle">
+          <ion-label>Nuevo usuario</ion-label>
+        </div>
+      
+        <form class="" autocomplete="off" [formGroup]="formCreateAccount" (ngSubmit)="registrarse()">          
+          <ion-input class="inputStyle_loginPage" type="text" formControlName="name" placeholder="Nombre"></ion-input>
+      
+          <ion-input class="inputStyle_loginPage" type="email" formControlName="email" placeholder="Email"></ion-input>
+      
+          <ion-input class="inputStyle_loginPage" type="password" formControlName="password" placeholder="Contraseña"></ion-input>   
+      
+          <ion-item>
+            <ion-checkbox type="aceptTerms" slot="start"></ion-checkbox>
+            <ion-label>Acepto los Términos y condiciones</ion-label>
+          </ion-item>   
+      
+          <ion-button class="buttonStyle_loginPage" type="submit" expand="block" [disabled]="formCreateAccount.invalid">Registrar</ion-button>
+          
+      
+          <div class="ion-margin">
+              <span class="">¿Ya tienes una cuenta?</span>
+              <a href="#" class="" routerLink="/access/login">Ingresa aqui</a>
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
 
 

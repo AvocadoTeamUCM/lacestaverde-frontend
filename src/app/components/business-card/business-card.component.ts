@@ -10,7 +10,7 @@ import { BusinessServiceService } from 'src/app/services/business/business-servi
 })
 export class BusinessCardComponent  implements OnInit, OnChanges {
 
-  @Output() event_routerToBusiness = new EventEmitter<void>();
+  @Output() event_routerToBusiness = new EventEmitter<string>();
   @Input() businessUser!: Business 
 
   business!: Business
@@ -31,8 +31,8 @@ export class BusinessCardComponent  implements OnInit, OnChanges {
   /************************************************************************** 
    * DEDICATED METHODS
   ***************************************************************************/
-    emitEvent_goBusiness(){
-      this.event_routerToBusiness.emit();
+    emitEvent_goBusiness(busienessId: string){
+      this.event_routerToBusiness.emit(busienessId);
       return;
     }
 

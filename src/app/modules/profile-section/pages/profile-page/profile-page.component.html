@@ -6,7 +6,9 @@
   <div *ngIf="this.isMobile">
 
     <ion-card>
-      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+      <img alt="Avatar" style="object-fit: cover; padding: 20px" src="https://returntofreedom.org/store/wp-content/uploads/default-placeholder.png"/>
+
+      <!-- <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" /> -->
       <!-- <ion-avatar class="profile-avatar">
         <img class="profile-avatar" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
       </ion-avatar> -->
@@ -24,10 +26,10 @@
       </ion-card-content>
     </ion-card>
 
-    <div class="divBusiness">
+    <div class="divBusiness"> 
       <ion-text class="textHead" color="primary">Mis Negocios</ion-text>
       <div *ngFor="let business of businessUserId">
-        <app-business-card class="cardBusiness" [businessUser]="business" (event_routerToBusiness)="this.buttonClic_goBusiness()"></app-business-card>
+        <app-business-card class="cardBusiness" [businessUser]="business" (event_routerToBusiness)="this.buttonClic_goBusiness(business._id!)"></app-business-card>
       </div>
     </div>  
 
@@ -57,7 +59,7 @@
       <div class="divBusiness">
         <ion-text class="textHead" color="primary">Mis Negocios</ion-text>
         <div *ngFor="let business of businessUserId">
-          <app-business-card class="cardBusiness" [businessUser]="business" (event_routerToBusiness)="this.buttonClic_goBusiness()"></app-business-card>
+          <app-business-card class="cardBusiness" [businessUser]="business" (event_routerToBusiness)="this.buttonClic_goBusiness(business._id!)"></app-business-card>
         </div>
         <!-- <app-business-card class="cardBusiness"  (event_routerToBusiness)="this.buttonClic_goBusiness()"></app-business-card> -->
       </div>    
