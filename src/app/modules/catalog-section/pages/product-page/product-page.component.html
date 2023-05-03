@@ -95,6 +95,11 @@
             </ion-row>
 
             <app-product-stats [productName]="product.name!"></app-product-stats>
+            <ion-row class="rowQrCode">
+              <ion-col size="12">
+                <qrcode class [qrdata]="qrCode" [width]="180" [errorCorrectionLevel]="'M'"></qrcode>
+              </ion-col>
+            </ion-row>
         </ion-col>
       </ion-row>
     </ion-grid>
